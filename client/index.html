@@ -1,0 +1,54 @@
+<!doctype html>
+<html ng-app="Instagram">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instagram - Powered by Satellizer</title>
+  <link rel="stylesheet" href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+  <!--<link rel="stylesheet" href="css/bootstrap.css">-->
+  <!--<link rel="stylesheet" href="css/sweet-alert.css">-->
+  <link rel="stylesheet" href="css/styles.min.css">
+</head>
+<body>
+
+<div ng-controller="NavbarCtrl" class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <a href="/" class="navbar-brand"><i class="ion-images"></i> Instagram</a>
+      <li><a href="#/">Home</a></li>
+      <li ng-if="!isAuthenticated()"><a href="#/login">Log in</a></li>
+      <li ng-if="!isAuthenticated()"><a href="#/signup">Sign up</a></li>
+      <li ng-if="isAuthenticated()"><a ng-click="logout()" href="">Logout</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li ng-if="isAuthenticated() && currentUser.username">
+        <a href="http://instagram.com/{{currentUser.username}}">
+          <img class="media-object img-rounded" ng-src="{{currentUser.picture}}">
+          @{{currentUser.username}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div ng-view></div>
+
+<!--<script src="vendor/angular.js"></script>-->
+<!--<script src="vendor/angular-route.js"></script>-->
+<!--<script src="vendor/angular-messages.js"></script>-->
+<!--<script src="vendor/sweet-alert.js"></script>-->
+<!--<script src="vendor/satellizer.js"></script>-->
+
+<!--<script src="app.js"></script>-->
+<!--<script src="services/api.js"></script>-->
+<!--<script src="directives/serverError.js"></script>-->
+<!--<script src="controllers/home.js"></script>-->
+<!--<script src="controllers/navbar.js"></script>-->
+<!--<script src="controllers/login.js"></script>-->
+<!--<script src="controllers/signup.js"></script>-->
+<!--<script src="controllers/detail.js"></script>-->
+
+<script src="app.min.js"></script>
+</body>
+</html>
